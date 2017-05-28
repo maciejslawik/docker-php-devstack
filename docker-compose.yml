@@ -1,0 +1,49 @@
+version: '3.1'
+
+services:
+    mysql:
+        image: mysql
+        ports:
+            - ${MYSQL_PORT}:3306
+        environment:
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASS}
+            MYSQL_DATABASE: ${MYSQL_DB}
+            MYSQL_USER: ${MYSQL_USER}
+            MYSQL_PASSWORD: ${MYSQL_PASS}
+        volumes:
+            - mysql_data:/var/lib/mysql
+    postgresql:
+        image: sameersbn/postgresql:9.6-2
+        ports:
+            - ${POSTGRESQL_PORT}:5432
+        environment:
+            DB_USER: ${POSTGRESQL_USER}
+            DB_PASS: ${POSTGRESQL_PASS}
+            DB_NAME: ${POSTGRESQL_DB}
+        volumes:
+            - postgreqsl_data:/var/lib/postgresql
+    php:
+        image: maciejslawik/php7-fpm-xdebug:7.1
+        links:
+            - elasticsearch
+        volumes:
+            - .:/var/www/html
+
+    nginx:
+        image: maciejslawik/nginx:latest
+        ports:
+            - ${NGINX_PORT}:80
+        links:
+            - php
+        volumes:
+            - ./docker/vhost/:/etc/nginx/sites-available
+            - .:/var/www/html
+    elasticsearch:
+        image: elasticsearch:latest
+        ports:
+            - ${ELASTICSEARCH_PORT}:9200
+
+volumes:
+    mysql_data:
+    postgreqsl_data:
+
