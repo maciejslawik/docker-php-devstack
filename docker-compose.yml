@@ -28,7 +28,9 @@ services:
             - elasticsearch
         volumes:
             - .:/var/www/html
-
+        environment:
+            XDEBUG_CONFIG: "remote_host=${XDEBUG_HOST_IP} idekey=${XDEBUG_IDE_KEY}"
+            PHP_IDE_CONFIG: "serverName=${PHP_IDE_CONFIG_SERVERNAME}"
     nginx:
         image: maciejslawik/nginx:latest
         ports:
