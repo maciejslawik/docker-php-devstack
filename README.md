@@ -31,3 +31,24 @@ e.g. ``` docker/data/postgresql ```
 
 Vhost configuration can be changed using 
  ``` docker/vhost/vhost.conf ```
+ 
+#### Redis ####
+
+By default the data is stored in a named
+container. You can change it to store
+the data in a visible directory,
+e.g. ``` docker/data/redis ``` 
+
+#### MongoDB ####
+
+By default the data is stored in a named
+container. You can change it to store
+the data in a visible directory,
+e.g. ``` docker/data/mongodb ``` 
+
+#### Elasticsearch ####
+
+By default the data is stored in a named
+container. You can change it to store
+the data in a visible directory,
+e.g. ``` docker/data/elasticsearch ``` 

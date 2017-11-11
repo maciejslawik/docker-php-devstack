@@ -44,8 +44,31 @@ services:
         image: elasticsearch:latest
         ports:
             - ${ELASTICSEARCH_PORT}:9200
+        volumes:
+            - elasticsearch_data:/usr/share/elasticsearch/data
+            - elasticsearch_config:/usr/share/elasticsearch/config
+    redis:
+        image: bitnami/redis:latest
+        ports:
+            - ${REDIS_PORT}:6379
+        environment:
+            - REDIS_PASSWORD=${REDIS_PASSWORD}
+        volumes:
+            - redis_data:/bitnami
+    mongodb:
+        image: bitnami/mongodb:latest
+        ports:
+            - ${MONGODB_PORT}:27017
+        environment:
+            - MONGODB_ROOT_PASSWORD=${MONGODB_PASSWORD}
+        volumes:
+            - mongodb_data:/bitnami
 
 volumes:
     mysql_data:
     postgreqsl_data:
+    redis_data:
+    mongodb_data:
+    elasticsearch_data:
+    elasticsearch_config:
 
