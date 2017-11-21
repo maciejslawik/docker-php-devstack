@@ -1,4 +1,4 @@
-# PHP7 with xdebug + Nginx + MySQL + PostgreSQL + ElasticSearch #
+# PHP7 with xdebug + Nginx + MySQL + PostgreSQL + ElasticSearch + Redis + MongoDB + RabbitMQ #
 
 PHP7 development environment with xdebug, Nginx
 web server, MySQL, PostgreSQL and ElasticSearch.
@@ -52,3 +52,9 @@ By default the data is stored in a named
 container. You can change it to store
 the data in a visible directory,
 e.g. ``` docker/data/elasticsearch ``` 
+
+#### RabbitMQ ####
+
+RabbitMQ is available via web management console
+and from PHP container using ports defined in
+environment variables.

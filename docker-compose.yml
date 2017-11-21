@@ -26,6 +26,7 @@ services:
         image: maciejslawik/php7-fpm-xdebug:7.1
         links:
             - elasticsearch
+            - rabbitmq
         volumes:
             - .:/var/www/html
         environment:
@@ -63,6 +64,15 @@ services:
             - MONGODB_ROOT_PASSWORD=${MONGODB_PASSWORD}
         volumes:
             - mongodb_data:/bitnami
+    rabbitmq:
+            image: rabbitmq:3-management
+            ports:
+              - ${RABBITMQ_MANAGEMENT_PORT}:15672
+              - ${RABBITMQ_MAIN_PORT}:5672
+            environment:
+                RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER}
+                RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASS}
+                RABBITMQ_DEFAULT_VHOST: ${RABBITMQ_VHOST}
 
 volumes:
     mysql_data:
