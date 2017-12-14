@@ -1,6 +1,6 @@
-# PHP7 with xdebug + Nginx + MySQL + PostgreSQL + ElasticSearch + Redis + MongoDB + RabbitMQ #
+# PHP with xdebug + Nginx + MySQL + PostgreSQL + ElasticSearch + Redis + MongoDB + RabbitMQ #
 
-PHP7 development environment with xdebug, Nginx
+PHP development environment with xdebug, Nginx
 web server, MySQL, PostgreSQL and ElasticSearch.
 It uses docker-compose v3.
 
@@ -10,6 +10,10 @@ It uses docker-compose v3.
 the root of your project
 2. Configure the ``` docker/.env ``` file
 3. Run ``` docker-compose up -d ```
+
+
+#### PHP ####
+Supported versions: 5.6, 7.0, 7.1
 
 #### MySQL ####
 
@@ -30,7 +34,12 @@ e.g. ``` docker/data/postgresql ```
 #### Nginx ####
 
 Vhost configuration can be changed using 
- ``` docker/vhost/vhost.conf ```
+ ``` docker/nginx/vhost.conf ```
+ 
+#### Apache2 ####
+
+Vhost configuration can be changed using 
+``` docker/apache2/vhost.conf ```
  
 #### Redis ####
 
