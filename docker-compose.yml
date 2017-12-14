@@ -58,7 +58,6 @@ services:
             - postgreqsl_data:/var/lib/postgresql/
     adminer:
         image: adminer
-        restart: always
         ports:
           - ${ADMINER_PORT}:8080
     elasticsearch:
