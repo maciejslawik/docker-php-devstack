@@ -2,7 +2,7 @@ version: '3.1'
 
 services:
     php:
-        image: maciejslawik/php7-fpm-xdebug:7.1
+        image: maciejslawik/php-fpm-xdebug:latest
         links:
             - elasticsearch
             - rabbitmq
@@ -23,7 +23,6 @@ services:
             - .:/var/www/html
     apache:
         image: maciejslawik/apache2:latest
-        build: .
         volumes:
             - ./docker/apache:/etc/apache2/sites-enabled
             - .:/var/www/html
