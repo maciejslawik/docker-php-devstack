@@ -13,7 +13,7 @@ the root of your project
 
 
 #### PHP ####
-Supported versions: 5.6, 7.0, 7.1
+Supported versions: 5.6, 7.0, 7.1, 7.2
 
 #### MySQL ####
 
