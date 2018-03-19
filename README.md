@@ -1,8 +1,19 @@
-# PHP with xdebug + Nginx + MySQL + PostgreSQL + ElasticSearch + Redis + MongoDB + RabbitMQ #
+# PHP with xdebug + (almost) anything you need #
 
-PHP development environment with xdebug, Nginx
-web server, MySQL, PostgreSQL and ElasticSearch.
-It uses docker-compose v3.
+PHP development environment with xdebug.
+Other services include:
+* Apache
+* Nginx
+* MySQL
+* PostgreSQL
+* RabbitMQ
+* ElasticSearch
+* Redis
+* Selenium
+* Adminer
+* MongoDB
+
+It uses docker-compose v3.1.
 
 ### Installation ###
 
@@ -67,3 +78,8 @@ e.g. ``` docker/data/elasticsearch ```
 RabbitMQ is available via web management console
 and from PHP container using ports defined in
 environment variables.
+
+#### Selenium ####
+
+By default Selenium is included as a standalone
+Firefox container. Change it to Chrome if you want.
