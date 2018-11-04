@@ -83,3 +83,10 @@ environment variables.
 
 By default Selenium is included as a standalone
 Firefox container. Change it to Chrome if you want.
+
+#### Blackfire.io ####
+
+You have to set up environment variables for Blackfire
+to be able to profile your app. You can profile the app
+using web interface (Chrome extension) or via CLI using
+```blackfire``` executable inside the PHP container.

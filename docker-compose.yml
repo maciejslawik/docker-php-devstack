@@ -14,6 +14,8 @@ services:
             PHP_IDE_CONFIG: "serverName=${PHP_IDE_CONFIG_SERVERNAME}"
             COLUMNS: ${TERMINAL_COLS}
             LINES: ${TERMINAL_LINES}
+            BLACKFIRE_CLIENT_ID: ${BLACKFIRE_CLIENT_ID}
+            BLACKFIRE_CLIENT_TOKEN: ${BLACKFIRE_CLIENT_TOKEN}
     nginx:
         image: maciejslawik/nginx:latest
         ports:
@@ -118,6 +120,7 @@ services:
             RABBITMQ_DEFAULT_VHOST: ${RABBITMQ_VHOST}
             COLUMNS: ${TERMINAL_COLS}
             LINES: ${TERMINAL_LINES}
+
     selenium:
         image: selenium/standalone-firefox
         ports:
@@ -126,6 +129,12 @@ services:
         environment:
             COLUMNS: ${TERMINAL_COLS}
             LINES: ${TERMINAL_LINES}
+
+    blackfire:
+        image: blackfire/blackfire
+        environment:
+            BLACKFIRE_SERVER_ID: ${BLACKFIRE_SERVER_ID}
+            BLACKFIRE_SERVER_TOKEN: ${BLACKFIRE_SERVER_TOKEN}
 
 volumes:
     postgreqsl_data:
