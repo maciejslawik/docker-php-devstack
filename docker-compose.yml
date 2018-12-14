@@ -77,7 +77,7 @@ services:
             LINES: ${TERMINAL_LINES}
 
     elasticsearch:
-        image: elasticsearch:latest
+        image: elasticsearch:6.5.3
         ports:
             - ${ELASTICSEARCH_PORT}:9200
         environment:
