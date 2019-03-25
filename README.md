@@ -4,6 +4,7 @@ PHP development environment with xdebug.
 Other services include:
 * Apache
 * Nginx
+* Varnish
 * MySQL
 * PostgreSQL
 * RabbitMQ
@@ -51,7 +52,11 @@ Vhost configuration can be changed using
 
 Vhost configuration can be changed using 
 ``` docker/apache2/vhost.conf ```
- 
+
+#### Varnish ####
+Vcl configuration can be changed using
+``` docker/varnish/default.vcl ```
+
 #### Redis ####
 
 By default the data is stored in a named

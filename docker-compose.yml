@@ -43,6 +43,24 @@ services:
             COLUMNS: ${TERMINAL_COLS}
             LINES: ${TERMINAL_LINES}
 
+    varnish:
+            image: bartoszkubicki/varnish:latest
+            ports:
+              - ${VARNISH_LISTEN_PORT}:6081
+              - ${VARNISH_ADMIN_LISTEN_PORT}:6082
+            depends_on:
+              - nginx
+            links:
+              - nginx
+            volumes:
+              - ./docker/varnish/default.vcl:/etc/varnish/default.vcl
+            environment:
+                VARNISH_LISTEN_ADDRESS: ${VARNISH_LISTEN_ADDRESS}
+                VARNISH_CACHE_SIZE: ${VARNISH_CACHE_SIZE}
+                VARNISH_TTL: ${VARNISH_TTL}
+                COLUMNS: ${TERMINAL_COLS}
+                LINES: ${TERMINAL_LINES}
+
     mysql:
         image: mysql
         ports:
