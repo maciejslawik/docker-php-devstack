@@ -13,6 +13,7 @@ Other services include:
 * Selenium
 * Adminer
 * MongoDB
+* Varnish
 
 It uses docker-compose v3.1.
 
@@ -26,6 +27,18 @@ the root of your project
 
 #### PHP ####
 Supported versions: 5.6, 7.0, 7.1, 7.2
+
+##### Emails #####
+To enable sending emails using ssmtp you need to adjust configuration in
+```docker/php/ssmtp.conf``` with your email relay configuration, e.g. for Gmail.
+
+Under ```hostname``` you need to place the hostname of your PHP container. To get it use
+the following command after running docker-compose and remember that the hostname of 
+a container changes everytime you destroy a container.
+
+``
+docker-compose exec php hostname
+``
 
 #### MySQL ####
 
@@ -95,3 +108,19 @@ You have to set up environment variables for Blackfire
 to be able to profile your app. You can profile the app
 using web interface (Chrome extension) or via CLI using
 ```blackfire``` executable inside the PHP container.
+
+## Docker
+Useful Docker and Docker-compose commands
+```
+docker-compose up    - starts containers
+docker-compose up -d    - starts containers in background (without showing logs)
+docker-compose ps    - lists all containers in current directory
+docker-compose stop    - stops all containers in current directory
+docker-compose down    - stops and destroys all containers in current directory
+
+docker-compose exec <<container_name>> bash    - logs into container as www-data
+docker-compose exec -u root <<container_name>> bash    - logs into container as root
+```
+
+Make sure to always run PHP commands inside PHP container as www-data - this way you will
+not encounter file permission problems.
