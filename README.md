@@ -15,14 +15,15 @@ Other services include:
 * MongoDB
 * Varnish
 
-It uses docker-compose v3.1.
+It uses docker-compose v3.7.
 
 ### Installation ###
 
 1. Simply put contents of this repository in
 the root of your project
-2. Configure the ``` docker/.env ``` file
-3. Run ``` docker-compose up -d ```
+2. Configure the ``` .env ``` file
+3. Configure ```docker-compose.yml``` to use only the services you need
+4. Run ``` docker-compose up -d ```
 
 
 #### PHP ####
