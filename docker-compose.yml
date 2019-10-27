@@ -69,28 +69,28 @@ services:
 
     varnish:
         container_name: ${DOMAIN_NAME}
-        image: eeacms/varnish
+        image: maciejslawik/varnish
         ports:
             - ${VARNISH_PORT}:6081
         links:
             - nginx
         environment:
             BACKENDS: ${DOMAIN_NAME}
-            BACKENDS_PORT: ${APPSERVER_PORT}
+            BACKENDS_PORT: ${NGINX_PORT}
             BACKENDS_PROBE_INTERVAL: 6000s
         volumes:
             - ./docker/varnish/default.vcl:/etc/varnish/default.vcl
 
 #    varnish:
 #        container_name: ${DOMAIN_NAME}
-#        image: eeacms/varnish
+#        image: maciejslawik/varnish
 #        ports:
 #            - ${VARNISH_PORT}:6081
 #        links:
 #            - nginx
 #        environment:
 #            BACKENDS: ${DOMAIN_NAME}
-#            BACKENDS_PORT: ${APPSERVER_PORT}
+#            BACKENDS_PORT: ${NGINX_PORT}
 #            BACKENDS_PROBE_INTERVAL: 6000s
 #        volumes:
 #            - ./docker/varnish-magento2/default.vcl:/etc/varnish/default.vcl
