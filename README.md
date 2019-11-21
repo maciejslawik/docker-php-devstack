@@ -14,6 +14,7 @@ Other services include:
 * Adminer
 * MongoDB
 * Varnish
+* Mailhog
 
 It uses docker-compose v3.7.
 
@@ -27,19 +28,11 @@ the root of your project
 
 
 #### PHP ####
-Supported versions: 5.6, 7.0, 7.1, 7.2
+Supported versions: 5.6, 7.0, 7.1, 7.2, 7.3
 
 ##### Emails #####
-To enable sending emails using ssmtp you need to adjust configuration in
-```docker/php/ssmtp.conf``` with your email relay configuration, e.g. for Gmail.
 
-Under ```hostname``` you need to place the hostname of your PHP container. To get it use
-the following command after running docker-compose and remember that the hostname of 
-a container changes everytime you destroy a container.
-
-``
-docker-compose exec php hostname
-``
+Use Mailhog
 
 #### MySQL ####
 
@@ -109,6 +102,10 @@ You have to set up environment variables for Blackfire
 to be able to profile your app. You can profile the app
 using web interface (Chrome extension) or via CLI using
 ```blackfire``` executable inside the PHP container.
+
+#### Mac support ####
+
+Use docker-sync and external volume for sufficient speed on Mac
 
 ## Docker
 Useful Docker and Docker-compose commands

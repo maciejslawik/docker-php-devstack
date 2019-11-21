@@ -1,0 +1,54 @@
+version: "2"
+options:
+  verbose: true
+syncs:
+  project-sync:
+    sync_userid: '1000'
+    sync_strategy: 'native_osx'
+    host_disk_mount_mode: 'cached'
+    src: '.'
+    sync_excludes: [
+      '.idea',
+      '.git',
+      '.platform',
+      '.travis',
+      'var/cache',
+      'var/sessions',
+      'var/page_cache',
+      'var/generation',
+      'var/composer_home',
+      'var/view_preprocessed',
+      'var/session',
+      'var/tmp',
+      'var/log',
+      'node_modules',
+      'phpserver/*',
+      'docs/*',
+      'setup/*',
+      'docker/data/*',
+      'dev/tests/*',
+      'generated/*',
+      'pub/static/*',
+      'pub/media/*'
+    ]
+    watch_excludes: [
+      '.idea',
+      '.git',
+      '.travis',
+      'var/cache',
+      'var/sessions',
+      'var/page_cache',
+      'var/generation',
+      'var/composer_home',
+      'var/view_preprocessed',
+      'var/session',
+      'var/tmp',
+      'var/log/system.log',
+      'var/log/debug.log',
+      'node_modules',
+      'generated/*',
+      'pub/static/*',
+      'pub/media/*',
+      'update/*',
+      'vendor/*'
+    ]
